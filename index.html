@@ -1,0 +1,420 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NJEMM - AI Travel Super App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+          },
+          colors: {
+            brandTeal: '#0B5F61',
+            brandTealDark: '#063D3E',
+            softGold: '#D8B46A',
+            ink: '#0A1118'
+          },
+          boxShadow: {
+            lux: '0 30px 80px rgba(3, 9, 16, 0.28), 0 10px 30px rgba(3, 9, 16, 0.18)',
+            glow: '0 0 0 1px rgba(216,180,106,0.25), 0 10px 40px rgba(11,95,97,0.35), 0 0 70px rgba(216,180,106,0.24)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --glass: rgba(255, 255, 255, 0.70);
+      --glass-strong: rgba(255, 255, 255, 0.86);
+    }
+
+    html, body {
+      background: radial-gradient(1200px 500px at 10% -20%, rgba(255, 168, 101, 0.45), transparent 50%),
+                  radial-gradient(1000px 550px at 75% -10%, rgba(176, 104, 255, 0.30), transparent 55%),
+                  linear-gradient(180deg, #eff6f7 0%, #eef1f4 55%, #e9edf2 100%);
+      color: #0f172a;
+      overflow-x: auto;
+      min-width: 1920px;
+    }
+
+    .browser-noise::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,0.10) 0.45px, transparent 0.45px);
+      background-size: 3px 3px;
+      opacity: 0.15;
+      mix-blend-mode: soft-light;
+    }
+
+    .hero-scene {
+      background:
+        linear-gradient(180deg, rgba(6, 61, 62, 0.50), rgba(6, 61, 62, 0.32)),
+        linear-gradient(90deg, rgba(255, 146, 74, 0.26), rgba(255, 116, 163, 0.22), rgba(112, 93, 255, 0.22)),
+        url('https://images.unsplash.com/photo-1522093007474-d86e9bf7ba6f?auto=format&fit=crop&w=2200&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-scene::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1000px 380px at 65% 10%, rgba(255, 204, 140, 0.32), transparent 58%),
+        radial-gradient(850px 350px at 20% 100%, rgba(150, 115, 255, 0.20), transparent 60%);
+      pointer-events: none;
+    }
+
+    .glass {
+      backdrop-filter: blur(20px) saturate(130%);
+      -webkit-backdrop-filter: blur(20px) saturate(130%);
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.58);
+    }
+
+    .glass-strong {
+      backdrop-filter: blur(26px) saturate(140%);
+      -webkit-backdrop-filter: blur(26px) saturate(140%);
+      background: var(--glass-strong);
+      border: 1px solid rgba(255,255,255,0.68);
+    }
+
+    .thinking-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #0B5F61;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+    .thinking-dot:nth-child(2) { animation-delay: 0.2s; }
+    .thinking-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }
+      40% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .hover-lift {
+      transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 35px rgba(11, 95, 97, 0.14), 0 8px 20px rgba(7, 33, 52, 0.11);
+      border-color: rgba(11,95,97,0.30);
+    }
+
+    .gold-shimmer {
+      background: linear-gradient(110deg, #c39643 0%, #f7dd9d 35%, #b98a39 70%, #f4d796 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}.ml-2{margin-left:0.5rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-14{margin-top:3.5rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-40{height:10rem}.h-44{height:11rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-\[54px\]{height:54px}.min-h-\[1450px\]{min-height:1450px}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-24{width:6rem}.w-3{width:0.75rem}.w-5{width:1.25rem}.w-\[1920px\]{width:1920px}.w-\[720px\]{width:720px}.w-full{width:100%}.max-w-\[1120px\]{max-width:1120px}.max-w-\[1520px\]{max-width:1520px}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-5{gap:1.25rem}.gap-8{gap:2rem}.gap-y-1{row-gap:0.25rem}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/70{border-color:rgb(226 232 240 / 0.7)}.border-teal-100{--tw-border-opacity:1;border-color:rgb(204 251 241 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/70{border-color:rgb(255 255 255 / 0.7)}.border-white\/75{border-color:rgb(255 255 255 / 0.75)}.border-white\/80{border-color:rgb(255 255 255 / 0.8)}.bg-\[\#28C840\]{--tw-bg-opacity:1;background-color:rgb(40 200 64 / var(--tw-bg-opacity, 1))}.bg-\[\#FF5F57\]{--tw-bg-opacity:1;background-color:rgb(255 95 87 / var(--tw-bg-opacity, 1))}.bg-\[\#FFBD2E\]{--tw-bg-opacity:1;background-color:rgb(255 189 46 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-brandTeal{--tw-bg-opacity:1;background-color:rgb(11 95 97 / var(--tw-bg-opacity, 1))}.bg-brandTeal\/10{background-color:rgb(11 95 97 / 0.1)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255 / var(--tw-bg-opacity, 1))}.bg-sky-50{--tw-bg-opacity:1;background-color:rgb(240 249 255 / var(--tw-bg-opacity, 1))}.bg-slate-100\/80{background-color:rgb(241 245 249 / 0.8)}.bg-softGold{--tw-bg-opacity:1;background-color:rgb(216 180 106 / var(--tw-bg-opacity, 1))}.bg-softGold\/20{background-color:rgb(216 180 106 / 0.2)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/65{background-color:rgb(255 255 255 / 0.65)}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-brandTeal{--tw-gradient-from:#0B5F61 var(--tw-gradient-from-position);--tw-gradient-to:rgb(11 95 97 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-brandTealDark{--tw-gradient-to:#063D3E var(--tw-gradient-to-position)}.to-slate-50{--tw-gradient-to:#f8fafc var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-10{padding-bottom:2.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-display{font-family:Plus Jakarta Sans, Inter, sans-serif}.font-sans{font-family:Inter, system-ui, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-\[15px\]{font-size:15px}.text-\[17px\]{font-size:17px}.text-\[58px\]{font-size:58px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.05\]{line-height:1.05}.leading-none{line-height:1}.tracking-\[0\.22em\]{letter-spacing:0.22em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-brandTeal{--tw-text-opacity:1;color:rgb(11 95 97 / var(--tw-text-opacity, 1))}.text-brandTealDark{--tw-text-opacity:1;color:rgb(6 61 62 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-indigo-700{--tw-text-opacity:1;color:rgb(67 56 202 / var(--tw-text-opacity, 1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/85{color:rgb(255 255 255 / 0.85)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-glow{--tw-shadow:0 0 0 1px rgba(216,180,106,0.25), 0 10px 40px rgba(11,95,97,0.35), 0 0 70px rgba(216,180,106,0.24);--tw-shadow-colored:0 0 0 1px var(--tw-shadow-color), 0 10px 40px var(--tw-shadow-color), 0 0 70px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lux{--tw-shadow:0 30px 80px rgba(3, 9, 16, 0.28), 0 10px 30px rgba(3, 9, 16, 0.18);--tw-shadow-colored:0 30px 80px var(--tw-shadow-color), 0 10px 30px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-brandTealDark:hover{--tw-bg-opacity:1;background-color:rgb(6 61 62 / var(--tw-bg-opacity, 1))}.hover\:text-brandTeal:hover{--tw-text-opacity:1;color:rgb(11 95 97 / var(--tw-text-opacity, 1))}</style></head>
+<body class="font-sans antialiased">
+  <main class="w-[1920px] mx-auto py-10 px-8">
+    <section class="rounded-[28px] border border-white/70 bg-white/65 shadow-lux overflow-hidden browser-noise relative">
+      <header class="h-[54px] flex items-center justify-between px-6 bg-white/70 border-b border-slate-200/70">
+        <div class="flex items-center gap-2">
+          <span class="h-3 w-3 rounded-full bg-[#FF5F57]"></span>
+          <span class="h-3 w-3 rounded-full bg-[#FFBD2E]"></span>
+          <span class="h-3 w-3 rounded-full bg-[#28C840]"></span>
+        </div>
+        <div class="text-xs text-slate-500 tracking-wide">https://app.njemm.ai/plan</div>
+        <div class="h-6 w-24 rounded-full bg-slate-100/80 border border-slate-200"></div>
+      </header>
+
+      <div class="relative min-h-[1450px] hero-scene px-10 pt-8 pb-10">
+        <nav class="glass rounded-2xl px-7 py-4 flex items-center justify-between shadow-lg relative z-10">
+          <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-brandTeal to-brandTealDark shadow-lg flex items-center justify-center text-white font-bold">N</div>
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.22em] text-slate-500">Global AI Travel</p>
+              <h1 class="font-display text-xl font-bold text-brandTealDark leading-none">NJEMM</h1>
+            </div>
+          </div>
+
+          <div class="w-[720px] glass-strong rounded-2xl px-6 py-3 border-white/75">
+            <div class="flex items-center gap-3">
+              <svg class="h-5 w-5 text-brandTeal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"></path>
+              </svg>
+              <p class="text-slate-500 text-[15px]">Where would you like to go?</p>
+            </div>
+          </div>
+
+          <ul class="flex items-center gap-8 text-[15px] font-medium text-slate-700">
+            <li class="hover:text-brandTeal transition">Flights</li>
+            <li class="hover:text-brandTeal transition">Hotels</li>
+            <li class="hover:text-brandTeal transition">Activities</li>
+            <li class="hover:text-brandTeal transition">Packages</li>
+          </ul>
+        </nav>
+
+        <div class="relative z-10 mt-14">
+          <div class="max-w-[1120px] mx-auto text-center">
+            <p class="inline-flex items-center gap-2 text-[13px] px-4 py-1.5 rounded-full bg-white/70 border border-white/80 text-brandTeal font-semibold shadow">
+              <span class="h-2 w-2 bg-softGold rounded-full"></span> AI-powered global trip intelligence
+            </p>
+            <h2 class="mt-6 font-display text-[58px] leading-[1.05] tracking-tight text-white drop-shadow-md">
+              Ask NJEMM AI - Your Intelligent Travel Assistant <span class="gold-shimmer">✨</span>
+            </h2>
+            <p class="mt-4 text-lg text-white/85">From discovery to booking, experience premium travel planning with real-time intelligence.</p>
+          </div>
+        </div>
+
+        <section class="relative z-10 mt-10 max-w-[1520px] mx-auto glass-strong rounded-[28px] p-7 shadow-glow">
+          <div class="rounded-2xl border border-teal-100 bg-white px-5 py-4 flex items-center justify-between">
+            <p class="text-[17px] text-slate-700">
+              "Plan a 7-day romantic trip to Paris and London for me and my partner in June"
+            </p>
+            <span class="text-xs px-3 py-1 rounded-full bg-brandTeal/10 text-brandTeal font-semibold">Confidence Score: 98%</span>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2 text-sm text-brandTeal font-medium">
+            <span>AI is thinking</span>
+            <div class="flex items-center gap-1.5">
+              <span class="thinking-dot"></span><span class="thinking-dot"></span><span class="thinking-dot"></span>
+            </div>
+            <span class="ml-2 text-xs px-2 py-1 rounded-full bg-softGold/20 text-amber-800">Smart Recommendation Engine Active</span>
+          </div>
+
+          <div class="mt-8 space-y-8">
+            <section class="rounded-3xl bg-white/95 border border-slate-200 p-6">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl text-slate-900">Best Price Flights</h3>
+                <span class="text-xs px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">We Found the Lowest Price</span>
+              </div>
+              <div class="mt-5 grid grid-cols-3 gap-5">
+                <article class="hover-lift rounded-2xl border border-slate-200 bg-white p-4">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="h-10 w-10 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold">AF</div>
+                      <div>
+                        <p class="font-semibold text-slate-900">Air France</p>
+                        <p class="text-xs text-slate-500">NYC → Paris</p>
+                      </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold">Best Price Guaranteed</span>
+                  </div>
+                  <div class="mt-4 text-sm text-slate-700 grid grid-cols-2 gap-y-1">
+                    <span>Departs: 8:35 PM</span><span>Arrives: 9:40 AM</span>
+                    <span>Duration: 7h 05m</span><span>Nonstop</span>
+                  </div>
+                  <div class="mt-4 flex items-center justify-between">
+                    <p class="text-2xl font-bold text-brandTeal">$648</p>
+                    <button class="px-4 py-2 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Book Now</button>
+                  </div>
+                </article>
+
+                <article class="hover-lift rounded-2xl border border-slate-200 bg-white p-4">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="h-10 w-10 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center font-bold">BA</div>
+                      <div>
+                        <p class="font-semibold text-slate-900">British Airways</p>
+                        <p class="text-xs text-slate-500">Paris → London</p>
+                      </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold">We Found the Lowest Price</span>
+                  </div>
+                  <div class="mt-4 text-sm text-slate-700 grid grid-cols-2 gap-y-1">
+                    <span>Departs: 11:15 AM</span><span>Arrives: 11:30 AM</span>
+                    <span>Duration: 1h 15m</span><span>Nonstop</span>
+                  </div>
+                  <div class="mt-4 flex items-center justify-between">
+                    <p class="text-2xl font-bold text-brandTeal">$126</p>
+                    <button class="px-4 py-2 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Book Now</button>
+                  </div>
+                </article>
+
+                <article class="hover-lift rounded-2xl border border-slate-200 bg-white p-4">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <div class="h-10 w-10 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center font-bold">VS</div>
+                      <div>
+                        <p class="font-semibold text-slate-900">Virgin Atlantic</p>
+                        <p class="text-xs text-slate-500">London → NYC</p>
+                      </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold">Best Price Guaranteed</span>
+                  </div>
+                  <div class="mt-4 text-sm text-slate-700 grid grid-cols-2 gap-y-1">
+                    <span>Departs: 5:05 PM</span><span>Arrives: 8:20 PM</span>
+                    <span>Duration: 8h 15m</span><span>1 stop</span>
+                  </div>
+                  <div class="mt-4 flex items-center justify-between">
+                    <p class="text-2xl font-bold text-brandTeal">$589</p>
+                    <button class="px-4 py-2 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Book Now</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="rounded-3xl bg-white/95 border border-slate-200 p-6">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl text-slate-900">Best Price Hotels</h3>
+                <span class="text-xs px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">Best Price Guaranteed</span>
+              </div>
+              <div class="mt-5 grid grid-cols-3 gap-5">
+                <article class="hover-lift rounded-2xl border border-slate-200 overflow-hidden bg-white">
+                  <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Paris luxury hotel" class="h-44 w-full object-cover">
+                  <div class="p-4">
+                    <div class="flex items-center justify-between">
+                      <h4 class="font-semibold text-slate-900">Le Meurice Paris</h4>
+                      <span class="text-xs text-amber-600">★★★★★</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-1">Paris · Tuileries</p>
+                    <div class="mt-3 flex items-center justify-between">
+                      <span class="text-brandTeal font-bold text-xl">$1,040<span class="text-sm text-slate-500 font-medium">/night</span></span>
+                      <span class="text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold">Lowest Price</span>
+                    </div>
+                    <button class="mt-4 w-full py-2.5 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Select Room</button>
+                  </div>
+                </article>
+
+                <article class="hover-lift rounded-2xl border border-slate-200 overflow-hidden bg-white">
+                  <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="London luxury hotel" class="h-44 w-full object-cover">
+                  <div class="p-4">
+                    <div class="flex items-center justify-between">
+                      <h4 class="font-semibold text-slate-900">The Savoy London</h4>
+                      <span class="text-xs text-amber-600">★★★★★</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-1">London · Covent Garden</p>
+                    <div class="mt-3 flex items-center justify-between">
+                      <span class="text-brandTeal font-bold text-xl">$920<span class="text-sm text-slate-500 font-medium">/night</span></span>
+                      <span class="text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold">Best Price Guaranteed</span>
+                    </div>
+                    <button class="mt-4 w-full py-2.5 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Select Room</button>
+                  </div>
+                </article>
+
+                <article class="hover-lift rounded-2xl border border-slate-200 overflow-hidden bg-white">
+                  <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Boutique luxury hotel" class="h-44 w-full object-cover">
+                  <div class="p-4">
+                    <div class="flex items-center justify-between">
+                      <h4 class="font-semibold text-slate-900">Shangri-La The Shard</h4>
+                      <span class="text-xs text-amber-600">★★★★★</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-1">London · Southwark</p>
+                    <div class="mt-3 flex items-center justify-between">
+                      <span class="text-brandTeal font-bold text-xl">$870<span class="text-sm text-slate-500 font-medium">/night</span></span>
+                      <span class="text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold">We Found the Lowest Price</span>
+                    </div>
+                    <button class="mt-4 w-full py-2.5 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Select Room</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="rounded-3xl bg-white/95 border border-slate-200 p-6">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl text-slate-900">7-Day Romantic Itinerary</h3>
+                <span class="text-xs px-3 py-1 rounded-full bg-brandTeal/10 text-brandTeal font-semibold">Smartly Optimized by NJEMM AI</span>
+              </div>
+              <div class="mt-6 grid grid-cols-7 gap-3">
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 1</p>
+                  <p class="mt-1 font-semibold text-sm">✈ Arrival Paris</p>
+                  <p class="text-xs text-slate-600 mt-1">Seine dinner cruise</p>
+                </div>
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 2</p>
+                  <p class="mt-1 font-semibold text-sm">🗼 Eiffel Tower</p>
+                  <p class="text-xs text-slate-600 mt-1">Sunset champagne view</p>
+                </div>
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 3</p>
+                  <p class="mt-1 font-semibold text-sm">🎨 Montmartre + Louvre</p>
+                  <p class="text-xs text-slate-600 mt-1">Curated art route</p>
+                </div>
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 4</p>
+                  <p class="mt-1 font-semibold text-sm">🚄 To London</p>
+                  <p class="text-xs text-slate-600 mt-1">Eurostar business class</p>
+                </div>
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 5</p>
+                  <p class="mt-1 font-semibold text-sm">🎡 London Eye</p>
+                  <p class="text-xs text-slate-600 mt-1">Thames walk at dusk</p>
+                </div>
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 6</p>
+                  <p class="mt-1 font-semibold text-sm">🏛 Big Ben + Westminster</p>
+                  <p class="text-xs text-slate-600 mt-1">Fine dining reservation</p>
+                </div>
+                <div class="hover-lift rounded-xl border border-slate-200 p-3 bg-gradient-to-b from-white to-slate-50">
+                  <p class="text-xs text-slate-500">Day 7</p>
+                  <p class="mt-1 font-semibold text-sm">🛍 Relax + shopping</p>
+                  <p class="text-xs text-slate-600 mt-1">Late checkout + airport</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="rounded-3xl bg-white/95 border border-slate-200 p-6">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-2xl text-slate-900">Best Price Fine Dining</h3>
+                <span class="text-xs px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 font-semibold">We Found the Lowest Price</span>
+              </div>
+              <div class="mt-5 grid grid-cols-3 gap-5">
+                <article class="hover-lift rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury restaurant in Paris" class="h-40 w-full object-cover">
+                  <div class="p-4">
+                    <h4 class="font-semibold text-slate-900">Le Jules Verne</h4>
+                    <p class="text-sm text-slate-500">Paris · 4.9 ★</p>
+                    <p class="text-sm text-slate-600 mt-2">Modern French tasting menu with panoramic skyline views.</p>
+                    <button class="mt-4 w-full py-2.5 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Reserve Table</button>
+                  </div>
+                </article>
+                <article class="hover-lift rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury restaurant in London" class="h-40 w-full object-cover">
+                  <div class="p-4">
+                    <h4 class="font-semibold text-slate-900">Core by Clare Smyth</h4>
+                    <p class="text-sm text-slate-500">London · 4.8 ★</p>
+                    <p class="text-sm text-slate-600 mt-2">Refined contemporary cuisine with intimate Michelin-level service.</p>
+                    <button class="mt-4 w-full py-2.5 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Reserve Table</button>
+                  </div>
+                </article>
+                <article class="hover-lift rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Luxury rooftop dining" class="h-40 w-full object-cover">
+                  <div class="p-4">
+                    <h4 class="font-semibold text-slate-900">Alain Ducasse at The Dorchester</h4>
+                    <p class="text-sm text-slate-500">London · 4.9 ★</p>
+                    <p class="text-sm text-slate-600 mt-2">Elegant fine dining with signature seasonal pairings.</p>
+                    <button class="mt-4 w-full py-2.5 rounded-xl bg-brandTeal text-white text-sm font-semibold hover:bg-brandTealDark transition">Reserve Table</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <footer class="relative z-10 mt-8 max-w-[1520px] mx-auto glass rounded-2xl px-5 py-4">
+          <div class="flex items-center justify-between text-sm text-slate-700">
+            <p class="font-semibold text-brandTeal">NJEMM AI can:</p>
+            <ul class="flex items-center gap-3">
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">🔍 Search</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">🧠 Plan</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">💳 Book</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">⏰ Set Reminders</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">🔄 Handle Changes &amp; Cancellations</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">📅 Sync to Calendar</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">🧳 Create Packing Lists</li>
+              <li class="px-3 py-1.5 rounded-full bg-white/80 border border-white text-xs">🚨 Send Smart Alerts</li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+
+</body></html>
