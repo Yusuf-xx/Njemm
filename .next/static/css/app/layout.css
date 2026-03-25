@@ -595,14 +595,11 @@ video {
 .hidden {
   display: none;
 }
-.aspect-square {
-  aspect-ratio: 1 / 1;
-}
-.aspect-video {
-  aspect-ratio: 16 / 9;
-}
 .aspect-\[20\/9\] {
   aspect-ratio: 20/9;
+}
+.aspect-square {
+  aspect-ratio: 1 / 1;
 }
 .h-10 {
   height: 2.5rem;
@@ -643,9 +640,6 @@ video {
 .h-full {
   height: 100%;
 }
-.h-2\.5 {
-  height: 0.625rem;
-}
 .min-h-\[48px\] {
   min-height: 48px;
 }
@@ -682,9 +676,6 @@ video {
 .w-full {
   width: 100%;
 }
-.w-2\.5 {
-  width: 0.625rem;
-}
 .min-w-\[280px\] {
   min-width: 280px;
 }
@@ -715,10 +706,6 @@ video {
 .flex-1 {
   flex: 1 1 0%;
 }
-.-translate-y-1 {
-  --tw-translate-y: -0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -736,9 +723,6 @@ video {
 }
 .flex-wrap {
   flex-wrap: wrap;
-}
-.items-start {
-  align-items: flex-start;
 }
 .items-center {
   align-items: center;
@@ -982,11 +966,11 @@ video {
 .to-slate-50 {
   --tw-gradient-to: #f8fafc var(--tw-gradient-to-position);
 }
-.to-white\/5 {
-  --tw-gradient-to: rgb(255 255 255 / 0.05) var(--tw-gradient-to-position);
-}
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.to-white\/5 {
+  --tw-gradient-to: rgb(255 255 255 / 0.05) var(--tw-gradient-to-position);
 }
 .bg-clip-text {
   -webkit-background-clip: text;
@@ -1093,9 +1077,6 @@ video {
 .pt-6 {
   padding-top: 1.5rem;
 }
-.pt-4 {
-  padding-top: 1rem;
-}
 .text-left {
   text-align: left;
 }
@@ -1163,9 +1144,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[20px\] {
-  font-size: 20px;
 }
 .font-bold {
   font-weight: 700;
@@ -1305,11 +1283,6 @@ video {
   --tw-shadow-colored: 0 30px 80px var(--tw-shadow-color), 0 10px 30px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.shadow-\[0_0_0_3px_rgba\(11\2c 95\2c 97\2c 0\.18\)\] {
-  --tw-shadow: 0 0 0 3px rgba(11,95,97,0.18);
-  --tw-shadow-colored: 0 0 0 3px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1385,9 +1358,11 @@ body::-webkit-scrollbar {
     radial-gradient(1100px 520px at 15% -10%, rgba(255, 168, 101, 0.42), transparent 55%),
     radial-gradient(1000px 600px at 85% 0%, rgba(176, 104, 255, 0.34), transparent 56%),
     linear-gradient(180deg, rgba(6, 61, 62, 0.52), rgba(6, 61, 62, 0.24)),
-    linear-gradient(90deg, rgba(255, 146, 74, 0.22), rgba(255, 116, 163, 0.18), rgba(112, 93, 255, 0.18));
+    linear-gradient(90deg, rgba(255, 146, 74, 0.22), rgba(255, 116, 163, 0.18), rgba(112, 93, 255, 0.18)),
+    url("/hero-paris-london.png");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .hero-scene::after {
@@ -1569,10 +1544,6 @@ body::-webkit-scrollbar {
     padding: 3rem;
   }
 
-  .md\:p-6 {
-    padding: 1.5rem;
-  }
-
   .md\:p-5 {
     padding: 1.25rem;
   }
@@ -1599,10 +1570,6 @@ body::-webkit-scrollbar {
 
   .md\:pt-4 {
     padding-top: 1rem;
-  }
-
-  .md\:pt-6 {
-    padding-top: 1.5rem;
   }
 
   .md\:text-right {
@@ -1642,10 +1609,6 @@ body::-webkit-scrollbar {
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .md\:text-\[22px\] {
-    font-size: 22px;
   }
 }
 

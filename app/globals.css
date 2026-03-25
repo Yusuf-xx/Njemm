@@ -51,9 +51,11 @@ body::-webkit-scrollbar {
     radial-gradient(1100px 520px at 15% -10%, rgba(255, 168, 101, 0.42), transparent 55%),
     radial-gradient(1000px 600px at 85% 0%, rgba(176, 104, 255, 0.34), transparent 56%),
     linear-gradient(180deg, rgba(6, 61, 62, 0.52), rgba(6, 61, 62, 0.24)),
-    linear-gradient(90deg, rgba(255, 146, 74, 0.22), rgba(255, 116, 163, 0.18), rgba(112, 93, 255, 0.18));
+    linear-gradient(90deg, rgba(255, 146, 74, 0.22), rgba(255, 116, 163, 0.18), rgba(112, 93, 255, 0.18)),
+    url("/hero-paris-london.png");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .hero-scene::after {
