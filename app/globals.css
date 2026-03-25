@@ -26,6 +26,15 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .browser-noise::before {
   content: "";
   position: absolute;
@@ -39,12 +48,12 @@ body::-webkit-scrollbar {
 
 .hero-scene {
   background:
-    linear-gradient(180deg, rgba(6, 61, 62, 0.5), rgba(6, 61, 62, 0.32)),
-    linear-gradient(90deg, rgba(255, 146, 74, 0.26), rgba(255, 116, 163, 0.22), rgba(112, 93, 255, 0.22)),
-    url("/hero-paris-london.png");
+    radial-gradient(1100px 520px at 15% -10%, rgba(255, 168, 101, 0.42), transparent 55%),
+    radial-gradient(1000px 600px at 85% 0%, rgba(176, 104, 255, 0.34), transparent 56%),
+    linear-gradient(180deg, rgba(6, 61, 62, 0.52), rgba(6, 61, 62, 0.24)),
+    linear-gradient(90deg, rgba(255, 146, 74, 0.22), rgba(255, 116, 163, 0.18), rgba(112, 93, 255, 0.18));
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
 }
 
 .hero-scene::after {
