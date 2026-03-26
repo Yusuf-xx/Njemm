@@ -38,10 +38,10 @@ export default function Home() {
           <section className="relative z-10 mx-auto mt-14 max-w-[1520px] px-4 md:px-10">
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div className="text-left">
-                <h1 className="font-display text-[44px] leading-[1.02] tracking-tight text-white drop-shadow-sm md:text-[60px]">
+                <h1 className="font-display text-[44px] leading-[1.02] tracking-tight text-ink md:text-[60px]">
                   {landingContent.hero.heading}
                 </h1>
-                <p className="mt-5 max-w-xl text-[15px] leading-6 text-white/85 md:text-[16px]">
+                <p className="mt-5 max-w-xl text-[15px] leading-6 text-slate-600 md:text-[16px]">
                   {landingContent.hero.subheading}
                 </p>
 
@@ -50,11 +50,11 @@ export default function Home() {
 
               <div className="hidden lg:block">
                 <div className="relative mx-auto aspect-square w-full max-w-[520px]">
-                  <div className="absolute inset-0 rounded-[44px] bg-white/10 blur-[1px]" />
-                  <div className="absolute inset-0 rounded-[44px] bg-gradient-to-b from-white/25 to-white/5 backdrop-blur-xl" />
-                  <div className="absolute inset-10 rounded-[40px] bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.8),rgba(255,255,255,0.22),transparent_60%)]" />
+                  <div className="absolute inset-0 rounded-[44px] bg-[rgba(210,196,172,0.25)] blur-[1px]" />
+                  <div className="absolute inset-0 rounded-[44px] bg-gradient-to-b from-[rgba(250,247,240,0.85)] to-[rgba(232,223,200,0.35)] backdrop-blur-xl" />
+                  <div className="absolute inset-10 rounded-[40px] bg-[radial-gradient(circle_at_30%_20%,rgba(255,252,246,0.95),rgba(229,220,200,0.35),transparent_60%)]" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-[82%] w-[82%] rounded-[44px] bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.9),rgba(255,255,255,0.18),transparent_65%)] shadow-lux" />
+                    <div className="h-[82%] w-[82%] rounded-[44px] bg-[radial-gradient(circle_at_50%_35%,rgba(255,252,246,0.9),rgba(210,196,172,0.2),transparent_65%)] shadow-lux" />
                   </div>
                 </div>
               </div>
@@ -86,8 +86,8 @@ export default function Home() {
 
           <section className="relative z-10 mx-auto mt-20 max-w-[1520px] px-4 md:px-10">
             <div className="text-center">
-              <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.demo.heading}</h2>
-              <p className="mt-3 text-sm text-white/75">{landingContent.demo.helper}</p>
+              <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.demo.heading}</h2>
+              <p className="mt-3 text-sm text-slate-600">{landingContent.demo.helper}</p>
             </div>
             <div className="glass-strong mx-auto mt-8 overflow-hidden rounded-[28px] p-3 md:p-5">
               {/* Reduced size ~20%: aspect ratio adjusts video placeholder height */}
@@ -103,7 +103,7 @@ export default function Home() {
           </section>
 
           <section className="relative z-10 mx-auto mt-20 max-w-[1520px] px-4 md:px-10">
-            <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.destinations.heading}</h2>
+            <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.destinations.heading}</h2>
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
               {landingContent.destinations.items.map((d) => (
                 <article key={d.title} className="glass-strong overflow-hidden rounded-[28px]">
@@ -150,8 +150,8 @@ export default function Home() {
 
           <section className="relative z-10 mx-auto mt-20 max-w-[1520px] px-4 md:px-10">
             <div className="text-center">
-              <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.valueProps.heading}</h2>
-              <p className="mt-3 text-sm text-white/75">{landingContent.valueProps.subheading}</p>
+              <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.valueProps.heading}</h2>
+              <p className="mt-3 text-sm text-slate-600">{landingContent.valueProps.subheading}</p>
             </div>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {landingContent.valueProps.items.map((f) => (
@@ -168,11 +168,11 @@ export default function Home() {
 
           <section className="relative z-10 mx-auto mt-24 max-w-[1520px] px-4 md:px-10">
             <div className="text-center">
-              <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.partners.heading}</h2>
-              <p className="mt-10 text-4xl font-extrabold tracking-tight text-white">{landingContent.partners.pressHeading}</p>
-              <p className="mt-2 text-sm text-white/70">Featured in top global media for helping travellers save time, money, and stress.</p>
+              <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.partners.heading}</h2>
+              <p className="mt-10 text-4xl font-extrabold tracking-tight text-ink">{landingContent.partners.pressHeading}</p>
+              <p className="mt-2 text-sm text-slate-600">Featured in top global media for helping travellers save time, money, and stress.</p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm font-semibold text-white/80">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-sm font-semibold text-slate-700">
               {landingContent.partners.pressLogos.map((logo) => (
                 <span key={logo} className="opacity-90">
                   {logo}
@@ -182,7 +182,7 @@ export default function Home() {
           </section>
 
           <section className="relative z-10 mx-auto mt-24 max-w-[1520px] px-4 md:px-10">
-            <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.investors.heading}</h2>
+            <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.investors.heading}</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {landingContent.investors.items.map((p) => (
                 <div key={p.name} className="glass-strong rounded-[24px] p-6">
@@ -196,13 +196,13 @@ export default function Home() {
 
           <section className="relative z-10 mx-auto mt-24 max-w-[1520px] px-4 md:px-10">
             <div className="flex items-center justify-between gap-6">
-              <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.team.heading}</h2>
+              <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.team.heading}</h2>
               <div className="hidden items-center gap-2 md:flex">
                 <button
                   type="button"
                   aria-label="Scroll team left"
                   onClick={() => scrollTeamByCards(-1)}
-                  className="glass inline-flex h-10 w-10 items-center justify-center rounded-full text-white/90 transition hover:bg-white/15"
+                  className="glass inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 transition hover:bg-white/80"
                 >
                   ←
                 </button>
@@ -210,7 +210,7 @@ export default function Home() {
                   type="button"
                   aria-label="Scroll team right"
                   onClick={() => scrollTeamByCards(1)}
-                  className="glass inline-flex h-10 w-10 items-center justify-center rounded-full text-white/90 transition hover:bg-white/15"
+                  className="glass inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 transition hover:bg-white/80"
                 >
                   →
                 </button>
@@ -236,7 +236,7 @@ export default function Home() {
           </section>
 
           <section className="relative z-10 mx-auto mt-24 max-w-[1520px] px-4 md:px-10">
-            <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.testimonials.heading}</h2>
+            <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.testimonials.heading}</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {landingContent.testimonials.items.map((t) => (
                 <div key={t.name} className="glass-strong rounded-[24px] p-7">
@@ -253,27 +253,27 @@ export default function Home() {
           </section>
 
           <section className="relative z-10 mx-auto mt-24 max-w-[1520px] px-4 md:px-10">
-            <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.faq.heading}</h2>
-            <div className="mt-8 divide-y divide-white/20 overflow-hidden rounded-[28px] border border-white/20 bg-white/10 backdrop-blur-xl">
+            <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.faq.heading}</h2>
+            <div className="mt-8 divide-y divide-slate-200 overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/60 backdrop-blur-xl">
               {landingContent.faq.items.map((item) => (
                 <details key={item.question} className="group px-6 py-5">
-                  <summary className="cursor-pointer list-none text-sm font-semibold text-white">
+                  <summary className="cursor-pointer list-none text-sm font-semibold text-slate-900">
                     <div className="flex items-center justify-between gap-6">
                       <span>{item.question}</span>
-                      <span className="text-white/70 transition group-open:rotate-45">+</span>
+                      <span className="text-slate-500 transition group-open:rotate-45">+</span>
                     </div>
                   </summary>
-                  <p className="mt-3 text-sm leading-7 text-white/75">{item.answer}</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.answer}</p>
                 </details>
               ))}
             </div>
           </section>
 
           <section className="relative z-10 mx-auto mt-24 max-w-[1520px] px-4 md:px-10">
-            <div className="rounded-[36px] bg-white/10 px-8 py-14 backdrop-blur-xl md:px-14">
+            <div className="rounded-[36px] border border-slate-200/80 bg-white/65 px-8 py-14 backdrop-blur-xl md:px-14">
               <div className="text-center">
-                <h2 className="font-display text-4xl tracking-tight text-white">{landingContent.finalCta.heading}</h2>
-                <p className="mt-3 text-sm text-white/75">{landingContent.finalCta.subheading}</p>
+                <h2 className="font-display text-4xl tracking-tight text-ink">{landingContent.finalCta.heading}</h2>
+                <p className="mt-3 text-sm text-slate-600">{landingContent.finalCta.subheading}</p>
                 <button
                   onClick={() => openModal()}
                   className="mt-8 inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-black"

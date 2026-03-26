@@ -138,7 +138,7 @@ export function HeroAIInput() {
       </div>
 
       <div className="mx-auto mt-4 flex max-w-[720px] justify-center">
-        <a href="#landing-stats" className="text-xs font-medium text-white/80 hover:text-white">
+        <a href="#landing-stats" className="text-xs font-medium text-slate-600 hover:text-brandTeal">
           See how I can help you ↓
         </a>
       </div>
